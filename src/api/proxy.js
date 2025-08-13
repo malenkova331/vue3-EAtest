@@ -34,6 +34,7 @@ export default async function handler(req, res) {
         });
 
         res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate');
+        console.log(response.result)
         return res.status(200).json(response.result);
     } catch (error) {
         console.error('Proxy error:', error);
