@@ -38,8 +38,7 @@ export default async function handler(req, res) {
     } catch (error) {
         console.error('Proxy error:', error);
         return res.status(500).json({ 
-            error: 'Failed to fetch data',
-            details: error.response?.data || error.message 
+            error: 'Failed to fetch data'
         });
     }
 }
