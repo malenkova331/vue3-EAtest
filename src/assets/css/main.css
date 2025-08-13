@@ -1,0 +1,67 @@
+.container {
+    padding: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th, td {
+    width: 400px;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+.loading {
+    color: #666;
+    padding: 20px;
+}
+.error {
+    color: #d32f2f;
+    padding: 20px;
+}
+.controls {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.filter-group label{
+    margin-right: 5px;
+}
+.pagination {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.pagination button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: solid 1px #42b983;
+    background: transparent;
+    border-radius: 4px;
+}
+.pagination button.active {
+    background: #42b983;
+    color: white;
+}
+.findButton{
+    margin-left: 10px;
+    padding: 3px 10px;
+    border: solid 1px #42b983;
+    background: transparent;
+    border-radius: 4px;
+}
+.findButton:active {
+    background: #42b983;
+    color: white;
+}
+button{
+    cursor: pointer;
+}
+button:hover{
+    background: #42b983;
+    color: white;
+}
