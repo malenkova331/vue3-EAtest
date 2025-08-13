@@ -4,7 +4,7 @@ const API_BASE_URL ='http://109.73.206.144:6969/api'
 const API_KEY = 'E6kUTYrYwZq2tN4QEtyzsbEBk3ie'
 const today = new Date().toISOString().split('T')[0];
 const api = axios.create({
-    baseURL: "https://corsproxy.io/?" +  encodeURIComponent(API_BASE_URL),
+    baseURL: "https://corsproxy.io/?" +  API_BASE_URL,
     headers: {
         "Accept": "application/json",
         "Content-Type": "application/json",
