@@ -20,7 +20,7 @@ const apiService = {
             }
         });
         console.log(response.result)
-        return response.result;
+        return response;
         } catch (error) {
         console.error(`API ${endpoint} error:`, error);
         throw error;
