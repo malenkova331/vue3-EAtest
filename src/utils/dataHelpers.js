@@ -1,3 +1,15 @@
+import { ref } from 'vue'
+
+export const filterOptions = ref({
+        field: '',
+        fieldName: '',
+        status: false
+})
+export const sortOptions = ref({
+    field: 'date',
+    direction: 'desc' 
+})
+
 // сортировка
 export function sortData(data, field, direction) {
     const result = [...data].sort((a, b) => {
@@ -71,4 +83,29 @@ export function filterData(data, field, fieldName, status){
         filteredIncomes = []
     }
     return filteredIncomes
+}
+
+
+export const toggleSort = (field) => {
+    if (sortOptions.value.field === field) {
+        sortOptions.value.direction = sortOptions.value.direction === 'asc' ? 'desc' : 'asc'
+    } else {
+        sortOptions.value.field = field
+        sortOptions.value.direction = 'asc'
+    }
+}
+
+export function toggleFilter(fieldName) {
+    try {
+        if(filterOptions.value.field != ''){
+            filterOptions.value.status = !filterOptions.value.status;
+            filterOptions.value.fieldName = fieldName;
+        } 
+        if (!filterOptions.value.status) {
+            currentPage.value = 1;
+            filterOptions.value.fieldName = '';
+        }
+    } catch (e) {
+        console.error("Ошибка в toggleFilter:", e);
+    }
 }

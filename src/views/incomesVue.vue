@@ -1,22 +1,14 @@
 <script setup>
     import { ref, computed, onMounted } from 'vue'
     import api from '../api'
-    import {sortData, filterData} from '../utils/dataHelpers.js'
+    import {sortData, filterData, toggleFilter, toggleSort, filterOptions, sortOptions} from '../utils/dataHelpers.js'
 
     const incomes = ref([])
     const loading = ref(false)
     const error = ref(null)
     const currentPage = ref(1)
     const itemsPerPage = 50
-    const filterOptions = ref({
-        field: '',
-        fieldName: '',
-        status: false
-    })
-    const sortOptions = ref({
-        field: 'date',
-        direction: 'desc' 
-    })
+    
 
     //загрузка данных из api
     const fetchData = async () => {
@@ -30,33 +22,6 @@
             console.error('API Error:', err)
         } finally {
             loading.value = false
-        }
-    }
-    
-
-
-
-    const toggleSort = (field) => {
-        if (sortOptions.value.field === field) {
-            sortOptions.value.direction = sortOptions.value.direction === 'asc' ? 'desc' : 'asc'
-        } else {
-            sortOptions.value.field = field
-            sortOptions.value.direction = 'asc'
-        }
-    }
-
-    function toggleFilter(fieldName) {
-        try {
-            if(filterOptions.value.field != ''){
-                filterOptions.value.status = !filterOptions.value.status;
-                filterOptions.value.fieldName = fieldName;
-            } 
-            if (!filterOptions.value.status) {
-                currentPage.value = 1;
-                filterOptions.value.fieldName = '';
-            }
-        } catch (e) {
-            console.error("Ошибка в toggleFilter:", e);
         }
     }
 
