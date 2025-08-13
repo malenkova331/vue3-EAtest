@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = '/api'; 
+const API_BASE_URL = "https://109.73.206.144:6969/api/$1"; 
 
 export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
