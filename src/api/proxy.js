@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-
-const API_BASE_URL = '/api';
+const API_BASE_URL = '/api'; 
 
 export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -30,7 +29,7 @@ export default async function handler(req, res) {
             },
             timeout: 10000,
             headers: {
-                'X-Forwarded-Proto': 'https'
+                'X-Forwarded-Proto': 'https' 
             }
         });
 
