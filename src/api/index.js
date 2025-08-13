@@ -19,7 +19,7 @@ const apiService = {
             ...params
             }
         });
-        return response.data;
+        return response.result;
         } catch (error) {
         console.error(`API ${endpoint} error:`, error);
         throw error;
