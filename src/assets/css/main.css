@@ -1,3 +1,12 @@
+@import "tailwindcss";
+
+body {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #2c3e50;
+}
+
 .container {
     padding: 20px;
 }
@@ -31,6 +40,11 @@ th {
 }
 .filter-group label{
     margin-right: 5px;
+}
+.filter-group input{
+    border: 1px solid #42b983;
+    padding: 2.5px;
+    border-radius: 4px;
 }
 .pagination {
     margin-top: 20px;

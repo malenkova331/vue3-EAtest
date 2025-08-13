@@ -2,13 +2,15 @@
     import { ref, computed, onMounted } from 'vue'
     import api from '../api'
     import {sortData, filterData, toggleFilter, toggleSort, filterOptions, sortOptions} from '../utils/dataHelpers.js'
+    import DynamicChart from '../components/dinamicChart.vue';
+    
 
     const incomes = ref([])
     const loading = ref(false)
     const error = ref(null)
     const currentPage = ref(1)
     const itemsPerPage = 50
-    
+    const availableFields = ['quantity'];
 
     //загрузка данных из api
     const fetchData = async () => {
@@ -17,6 +19,7 @@
         try {
             const response = await api.getIncomes()
             incomes.value = response.data.data
+            console.log(incomes.value)
         } catch (err) {
             error.value = `Ошибка загрузки: ${err.message}`
             console.error('API Error:', err)
@@ -144,5 +147,15 @@
         >
         {{ page }}
         </button>
+    </div>
+
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-2xl font-bold mb-6">Аналитика данных</h1>
+        
+        <DynamicChart 
+            :data="paginatedIncomes" 
+            :availableFields="availableFields" 
+            class="mb-8"
+        />
     </div>
 </template>

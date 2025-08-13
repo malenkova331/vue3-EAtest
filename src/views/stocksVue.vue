@@ -2,6 +2,7 @@
     import { ref, computed, onMounted } from 'vue'
     import api from '../api'
     import {sortData, filterData, toggleFilter, toggleSort, filterOptions, sortOptions} from '../utils/dataHelpers.js'
+    import DynamicChart from '../components/dinamicChart.vue';
 
     const apiData = ref([])
     const loading = ref(false)
@@ -9,6 +10,7 @@
     const currentPage = ref(1)
     const itemsPerPage = 50
     const today = new Date().toISOString().split('T')[0];
+    const availableFields = ['quantity', 'price'];
     
 
     //загрузка данных из api
@@ -135,6 +137,15 @@
         >
         {{ page }}
         </button>
+    </div>
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-2xl font-bold mb-6">Аналитика данных</h1>
+        
+        <DynamicChart 
+            :data="paginatedData" 
+            :availableFields="availableFields" 
+            class="mb-8"
+        />
     </div>
 </template>
 
