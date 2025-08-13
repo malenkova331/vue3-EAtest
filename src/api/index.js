@@ -1,10 +1,12 @@
-import axios from 'axios';
+import axios from 'axios'
 
-const API_BASE_URL ='http://109.73.206.144:6969/api'
+
+const API_BASE_URL = 'http://109.73.206.144:6969/api'
 const API_KEY = 'E6kUTYrYwZq2tN4QEtyzsbEBk3ie'
 const today = new Date().toISOString().split('T')[0];
 const api = axios.create({
     baseURL: API_BASE_URL,
+    timeout: 10000,
     headers: {
         "Accept": "application/json",
         "Content-Type": "application/json",
@@ -12,13 +14,12 @@ const api = axios.create({
     params: {
         key: API_KEY
     }
-});
-
+})
 export default {
     getIncomes(params = {}) {
-        return api.get('', {
+        return api.get('/incomes', {
+            mode: "cors",
             params: {
-                path: 'incomes',
                 dateFrom: params.dateFrom || '2025-07-01',
                 dateTo: params.dateTo || today,
                 page: params.page || 1,
@@ -27,9 +28,9 @@ export default {
         })
     },
     getOrders(params = {}) {
-        return api.get('', {
+        return api.get('/orders', {
+            mode: "cors",
             params: {
-                path: 'orders',
                 dateFrom: params.dateFrom || '2025-07-01',
                 dateTo: params.dateTo || today,
                 page: params.page || 1,
@@ -38,9 +39,9 @@ export default {
         })
     },
     getSales(params = {}) {
-        return api.get('', {
+        return api.get('/sales', {
+            mode: "cors",
             params: {
-                path: 'sales',
                 dateFrom: params.dateFrom || '2025-07-01',
                 dateTo: params.dateTo || today,
                 page: params.page || 1,
@@ -49,9 +50,9 @@ export default {
         })
     },
     getStocks(params = {}) {
-        return api.get('', {
+        return api.get('/stocks', {
+            mode: "cors",
             params: {
-                path: 'stocks',
                 dateFrom: params.dateFrom || today,
                 page: params.page || 1,
                 ...params

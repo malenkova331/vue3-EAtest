@@ -18,7 +18,7 @@
         error.value = null
         try {
             const response = await api.getIncomes()
-            incomes.value = response
+            incomes.value = response.data.data
             console.log(incomes.value)
         } catch (err) {
             error.value = `Ошибка загрузки: ${err.message}`
