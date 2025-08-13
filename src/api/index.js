@@ -2,11 +2,13 @@ import axios from 'axios';
 
 const today = new Date().toISOString().split('T')[0];
 const api = axios.create({
-    baseURL: '/api/proxy', // Теперь используем наш прокси
-    timeout: 10000,
+    baseURL: 'http://109.73.206.144:6969/api',
     headers: {
         "Accept": "application/json",
         "Content-Type": "application/json",
+    },
+    params: {
+        key: 'E6kUTYrYwZq2tN4QEtyzsbEBk3ie'
     }
 });
 
